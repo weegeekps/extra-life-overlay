@@ -9,19 +9,21 @@ const checkQueryStringBoolean = (queryString: string) => {
   );
 };
 
+const prepareClassString = (...classes: string[]) => {
+  return classes.reduce((acc, val) => (acc += " " + val));
+};
+
 const App: React.FC = (props) => {
   const isLeftOriented = checkQueryStringBoolean("isLeftOriented");
   const debuggingMode = checkQueryStringBoolean("debugging");
+  const topLevelClasses = prepareClassString(
+    "app",
+    isLeftOriented ? "left" : "right",
+    debuggingMode ? "debugging" : ""
+  );
 
   return (
-    <div
-      className={
-        "app " +
-        (isLeftOriented ? "left" : "right") +
-        " " +
-        (debuggingMode ? "debugging" : "")
-      }
-    >
+    <div className={topLevelClasses}>
       <Logo />
       <Progress className={isLeftOriented ? "left" : "right"} />
     </div>
