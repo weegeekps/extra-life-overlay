@@ -1,0 +1,72 @@
+.progress-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.progress-container.left {
+  direction: rtl;
+}
+
+.progress-bar {
+  position: relative;
+  background: #1a4c6d;
+  overflow: hidden;
+  height: 40px;
+  border-radius: 300px;
+  border: solid 4px white;
+  width: 500px;
+}
+
+.progress-bar.left {
+  direction: rtl;
+}
+
+.progress-bar .completed {
+  background: #26c2eb;
+  height: 100%;
+  text-align: right;
+}
+
+.progress-bar .completed {
+  background-image: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.17) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.17) 50%,
+    rgba(255, 255, 255, 0.17) 75%,
+    transparent 75%
+  );
+  background-size: 20px 20px;
+  overflow: hidden;
+  animation: progress-animation 1s 1 forwards ease-out;
+}
+
+.progress-text {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-align: left;
+  color: white;
+  font-size: 2.3rem;
+  z-index: 2;
+  width: 100%;
+}
+
+.progress-text p {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.progress-text.left {
+  direction: rtl;
+}
+
+@keyframes progress-animation {
+  0% {
+    width: 0;
+  }
+}

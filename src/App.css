@@ -1,38 +1,33 @@
-.App {
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Cantarell:wght@700&display=swap");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: "Cantarell", sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.app.right {
+  flex-direction: row;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app.left {
+  flex-direction: row-reverse;
+}
+
+.app.debugging {
+  background-color: black;
+}
+
+.app .logo {
+  z-index: 2;
+}
+
+.app .progress-bar.right {
+  margin-left: -3rem;
+  z-index: 1;
+}
+
+.app .progress-bar.left {
+  margin-right: -3rem;
+  z-index: 1;
 }
