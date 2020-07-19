@@ -1,9 +1,12 @@
 import * as actions from "./Actions";
-import { call, put, takeEvery } from "redux-saga/effects";
+import { call, put, takeEvery, delay, select, fork } from "redux-saga/effects";
 import { fetchParticipantById } from "../../services/ExtraLife";
-import { IParticipant } from "../../models/IParticipant";
+import { IParticipant, ParticipantId } from "../../models/IParticipant";
 import { IRequestParticipantFetchAction } from "./Interfaces";
 import { ParticipantActionTypes } from "./Types";
+import { isRequestInFlight } from "./Selectors";
+
+const DELAY_IN_SECONDS = 60;
 
 export function* retrieveParticipant(action: IRequestParticipantFetchAction) {
   try {
@@ -17,9 +20,26 @@ export function* retrieveParticipant(action: IRequestParticipantFetchAction) {
   }
 }
 
+export function* tickUpdateParticipantTimer(id: ParticipantId) {
+  while (true) {
+    const lastRequestStillInFlight = yield select(isRequestInFlight);
+
+    if (!lastRequestStillInFlight) {
+      yield put(actions.requestParticipantFetch(id));
+    }
+
+    yield delay(DELAY_IN_SECONDS * 1000);
+  }
+}
+
 export function* watchFetchParticipant() {
   yield takeEvery(
     ParticipantActionTypes.PARTICIPANT_FETCH_REQUESTED,
     retrieveParticipant
   );
+}
+
+export function* runParticipantSagas(id: ParticipantId) {
+  yield fork(watchFetchParticipant);
+  yield fork(tickUpdateParticipantTimer, id);
 }
