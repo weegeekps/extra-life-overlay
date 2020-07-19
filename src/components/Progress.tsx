@@ -1,26 +1,65 @@
 import React from "react";
+import { connect } from "react-redux";
+import { useSpring, animated } from "react-spring";
 import "./Progress.css";
+import { IParticipant } from "../models/IParticipant";
+import { IAppState } from "../models/IAppState";
 
-export interface IProgressProps {
+export interface IProgressOwnProps {
   className?: string;
 }
 
+export interface IProgressProps {
+  className?: string;
+  participant?: IParticipant;
+}
+
+const clamp = (value: number, min: number, max: number) => {
+  if (value > min && value < max) return value;
+  if (value < min) return min;
+  if (value > max) return max;
+};
+
+const calculateCompletedWidth = (current: number, goal: number) =>
+  clamp((current / goal) * 100, 0, 100);
+
 const Progress: React.FC<IProgressProps> = (props) => {
-  const { className: classes } = props;
-  const completedWidth = {
-    width: "75%",
-  };
+  const { className: classes, participant } = props;
+
+  const springWidth = useSpring({
+    width:
+      (participant
+        ? calculateCompletedWidth(
+            participant.sumDonations,
+            participant.fundraisingGoal
+          )
+        : 0) + "%",
+  });
+
+  if (!participant) return null;
 
   return (
     <div className="progress-container">
       <div className={"progress-bar " + classes}>
-        <div className="completed" style={completedWidth}></div>
+        <animated.div className="completed" style={springWidth}></animated.div>
       </div>
       <div className={"progress-text " + classes}>
-        <p>{completedWidth.width}</p>
+        <p>${participant.sumDonations.toFixed(2)}</p>
       </div>
     </div>
   );
 };
 
-export default Progress;
+const mapStateToProps = (state: IAppState, ownProps: IProgressOwnProps) => {
+  const {
+    participant: { value: participant },
+  } = state;
+  const { className } = ownProps;
+
+  return {
+    className,
+    participant,
+  };
+};
+
+export default connect(mapStateToProps)(Progress);
