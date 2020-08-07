@@ -2,9 +2,17 @@ import {
   IRequestParticipantFetchAction,
   ISuccessfulParticipantFetchAction,
   IFailedParticipantFetchAction,
+  ISetParticipantIdAction,
 } from "./Interfaces";
 import { ParticipantActionTypes } from "./Types";
 import { ParticipantId, IParticipant } from "../../models/IParticipant";
+
+export function setParticipantId(id: ParticipantId): ISetParticipantIdAction {
+  return {
+    type: ParticipantActionTypes.PARTICIPANT_ID_SET,
+    id,
+  };
+}
 
 export function requestParticipantFetch(
   id: ParticipantId

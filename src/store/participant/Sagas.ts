@@ -1,10 +1,10 @@
 import * as actions from "./Actions";
 import { call, put, takeEvery, delay, select, fork } from "redux-saga/effects";
 import { fetchParticipantById } from "../../services/ExtraLife";
-import { IParticipant, ParticipantId } from "../../models/IParticipant";
+import { IParticipant } from "../../models/IParticipant";
 import { IRequestParticipantFetchAction } from "./Interfaces";
 import { ParticipantActionTypes } from "./Types";
-import { isRequestInFlight } from "./Selectors";
+import { getParticipantId, isRequestInFlight } from "./Selectors";
 
 const DELAY_IN_SECONDS = 60;
 
@@ -20,15 +20,19 @@ export function* retrieveParticipant(action: IRequestParticipantFetchAction) {
   }
 }
 
-export function* tickUpdateParticipantTimer(id: ParticipantId) {
+export function* tickUpdateParticipantTimer() {
   while (true) {
+    const id = yield select(getParticipantId);
+
     const lastRequestStillInFlight = yield select(isRequestInFlight);
 
-    if (!lastRequestStillInFlight) {
+    if (!lastRequestStillInFlight && id) {
       yield put(actions.requestParticipantFetch(id));
     }
 
-    yield delay(DELAY_IN_SECONDS * 1000);
+    // Wake every second if id is undefined.
+    let waitDelay = id ? DELAY_IN_SECONDS : 1;
+    yield delay(waitDelay * 1000);
   }
 }
 
@@ -39,7 +43,7 @@ export function* watchFetchParticipant() {
   );
 }
 
-export function* runParticipantSagas(id: ParticipantId) {
+export function* runParticipantSagas() {
   yield fork(watchFetchParticipant);
-  yield fork(tickUpdateParticipantTimer, id);
+  yield fork(tickUpdateParticipantTimer);
 }

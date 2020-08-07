@@ -9,6 +9,11 @@ export function participant(
   action: ParticipantActions
 ) {
   switch (action.type) {
+    case ParticipantActionTypes.PARTICIPANT_ID_SET:
+      return {
+        ...state,
+        id: action.id,
+      };
     case ParticipantActionTypes.PARTICIPANT_FETCH_REQUESTED:
       return {
         ...state,

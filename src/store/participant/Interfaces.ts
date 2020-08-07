@@ -2,9 +2,15 @@ import { ParticipantActionTypes } from "./Types";
 import { IParticipant, ParticipantId } from "../../models/IParticipant";
 
 export type ParticipantActions =
+  | ISetParticipantIdAction
   | IRequestParticipantFetchAction
   | ISuccessfulParticipantFetchAction
   | IFailedParticipantFetchAction;
+
+export interface ISetParticipantIdAction {
+  readonly type: ParticipantActionTypes.PARTICIPANT_ID_SET;
+  readonly id: ParticipantId;
+}
 
 export interface IRequestParticipantFetchAction {
   readonly type: ParticipantActionTypes.PARTICIPANT_FETCH_REQUESTED;
