@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-.progress-container.left {
+.progress-container.right {
   direction: rtl;
 }
 
@@ -19,7 +19,7 @@
   width: 500px;
 }
 
-.progress-bar.left {
+.progress-bar.right {
   direction: rtl;
 }
 
@@ -61,7 +61,7 @@
   padding-right: 0.5rem;
 }
 
-.progress-text.left {
+.progress-text.right {
   direction: rtl;
 }
 

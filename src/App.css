@@ -6,11 +6,11 @@
   font-family: "Cantarell", sans-serif;
 }
 
-.app.right {
+.app.left {
   flex-direction: row;
 }
 
-.app.left {
+.app.right {
   flex-direction: row-reverse;
 }
 
@@ -22,12 +22,12 @@
   z-index: 2;
 }
 
-.app .progress-bar.right {
+.app .progress-bar.left {
   margin-left: -3rem;
   z-index: 1;
 }
 
-.app .progress-bar.left {
+.app .progress-bar.right {
   margin-right: -3rem;
   z-index: 1;
 }

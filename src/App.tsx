@@ -2,21 +2,22 @@ import React from "react";
 import "./App.css";
 import Logo from "./components/Logo";
 import Progress from "./components/Progress";
-import { checkQueryStringBoolean, prepareClassString } from "./Utils";
+import { getQueryStringValue, checkQueryStringBoolean, prepareClassString } from "./Utils";
+import { Orientation } from "./models/Orientation";
 
 const App: React.FC = (props) => {
-  const isLeftOriented = checkQueryStringBoolean("isLeftOriented");
+  const orientation = getQueryStringValue("orientation");
   const debuggingMode = checkQueryStringBoolean("debugging");
   const topLevelClasses = prepareClassString(
     "app",
-    isLeftOriented ? "left" : "right",
+    orientation || Orientation.Left,
     debuggingMode ? "debugging" : ""
   );
 
   return (
     <div className={topLevelClasses}>
       <Logo />
-      <Progress className={isLeftOriented ? "left" : "right"} />
+      <Progress className={orientation || Orientation.Left} />
     </div>
   );
 };
