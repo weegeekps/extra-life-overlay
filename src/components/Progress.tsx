@@ -30,16 +30,16 @@ const Progress: React.FC<IProgressProps> = (props) => {
     width:
       (participant
         ? calculateCompletedWidth(
-            participant.sumDonations,
-            participant.fundraisingGoal
-          )
+          participant.sumDonations,
+          participant.fundraisingGoal
+        )
         : 0) + "%",
   });
 
   if (!participant) return null;
 
   return (
-    <div className="progress-container">
+    <div className="progress-container" data-testid="progress">
       <div className={"progress-bar " + classes}>
         <animated.div className="completed" style={springWidth}></animated.div>
       </div>

@@ -15,7 +15,7 @@ const App: React.FC = (props) => {
   );
 
   return (
-    <div className={topLevelClasses}>
+    <div className={topLevelClasses} data-testid="app">
       <Logo />
       <Progress className={orientation || Orientation.Left} />
     </div>

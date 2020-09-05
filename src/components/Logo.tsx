@@ -4,7 +4,7 @@ import logo from "../controller_white.svg";
 
 const Logo: React.FC = (props) => {
   return (
-    <div className="logo">
+    <div className="logo" data-testid="logo">
       <img src={logo} alt="Extra Life" />
     </div>
   );

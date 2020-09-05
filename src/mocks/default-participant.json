@@ -1,0 +1,18 @@
+{
+  "displayName": "Joe Schmoe",
+  "fundraisingGoal": 1000.00,
+  "participantID": 111333.0,
+  "eventName": "Extra Life 2020",
+  "avatarImageURL": "//assets.donordrive.com/extralife/images/$avatars$/constituent_A672D498-AF71-8025-726D2DDC5DF51CD7.jpg",
+  "streamIsLive": false,
+  "links": {
+    "donate": "https://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=111333#donate",
+    "stream": "https://player.twitch.tv/?channel=joeschmoeplaysvidja",
+    "page": "https://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=111333"
+  },
+  "createdDateUTC": "2020-04-02T03:42:13.710+0000",
+  "eventID": 547.0,
+  "sumDonations": 300.00,
+  "sumPledges": 0.00,
+  "numDonations": 20.0
+}
