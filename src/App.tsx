@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Logo from "./components/Logo";
 import Progress from "./components/Progress";
-import { getQueryStringValue, checkQueryStringBoolean, prepareClassString } from "./Utils";
+import { getQueryStringValue, checkQueryStringBoolean, prepareClassString } from "./utils";
 import { Orientation } from "./models/Orientation";
 
 const App: React.FC = (props) => {

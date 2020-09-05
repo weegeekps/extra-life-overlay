@@ -1,7 +1,7 @@
 import { fork, put } from "redux-saga/effects";
 import { runParticipantSagas } from "./participant/Sagas";
 import * as participantActions from "./participant/Actions";
-import { getQueryStringValue } from "../Utils";
+import { getQueryStringValue } from "../utils";
 
 // Use my participant ID? Not sure what a good default would be.
 const DEFAULT_PARTICIPANT_ID = "408096";
