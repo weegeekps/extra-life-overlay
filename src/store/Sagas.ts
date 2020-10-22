@@ -3,12 +3,14 @@ import { runParticipantSagas } from "./participant/Sagas";
 import * as participantActions from "./participant/Actions";
 import { getQueryStringValue } from "../utils";
 
-// Use my participant ID? Not sure what a good default would be.
-const DEFAULT_PARTICIPANT_ID = "408096";
-
 export function* startup() {
-  const id = getQueryStringValue("participant") || DEFAULT_PARTICIPANT_ID;
-  yield put(participantActions.setParticipantId(+id));
+  const id = getQueryStringValue("participant");
+
+  if (id) {
+    yield put(participantActions.setParticipantId(+id));
+  } else {
+    console.warn("No participant ID is set. Set the participant ID using the 'participant' query parameter.")
+  }
 }
 
 export default function* root() {
