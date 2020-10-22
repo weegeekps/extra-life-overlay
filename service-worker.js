@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/extra-life-overlay/precache-manifest.fd0e4ea3ceeca9684ff724828ddfa0ff.js"
+  "/extra-life-overlay/precache-manifest.91bc729a31e3180504ad3864289ea799.js"
 );
 
 self.addEventListener('message', (event) => {
