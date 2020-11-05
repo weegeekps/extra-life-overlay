@@ -57,3 +57,7 @@ If you do this after loading the Browser Source the first time, you may need to 
 ## Reporting Issues
 
 If you find a bug or another issue, please [submit a bug report using the Bug Report template in GitHub](https://github.com/weegeekps/extra-life-overlay/issues/new?assignees=&labels=&template=bug_report.md&title=).
+
+## Logo Disclaimer
+
+The logo included is an unmodified SVG provided by Extra Life via the [Multimedia Kit](https://www.extra-life.org/index.cfm?fuseaction=cms.page&id=1091).
