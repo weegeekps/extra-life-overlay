@@ -9,6 +9,8 @@ A simple and lightweight stream overlay alternative for Extra Life campaigns.
 * Progress bar orientation changes based on the logo orientation.
 * A visual design inspired by the Extra Life website visual design.
 
+![Extra Life Overlay](/doc/extra-life-overlay.png)
+
 ## How to use
 
 The overlay is hosted using GitHub Pages. For specific usage instructions with [OBS Studio](#using-with-obs-studio) or [XSplit Broadcaster](#using-with-xsplit-broadcaster) please see the relevant sections below.
