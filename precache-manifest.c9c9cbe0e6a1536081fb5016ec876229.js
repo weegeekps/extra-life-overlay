@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "be845fed5994f7896b64c9d8e637689b",
+    "revision": "8df6d682860f10048a002edebb3270df",
     "url": "/extra-life-overlay/index.html"
   },
   {
-    "revision": "3073b003d4fdc6a83b86",
+    "revision": "ef41f4c29dd368de6ac1",
     "url": "/extra-life-overlay/static/css/main.7fbe95f8.chunk.css"
   },
   {
-    "revision": "ebb57e4fd236318ba041",
-    "url": "/extra-life-overlay/static/js/2.9e5e54a4.chunk.js"
+    "revision": "c76f27bcdd0abb04d93c",
+    "url": "/extra-life-overlay/static/js/2.ada24666.chunk.js"
   },
   {
     "revision": "9b318b6fb13190fe82c0677e9264b3c7",
-    "url": "/extra-life-overlay/static/js/2.9e5e54a4.chunk.js.LICENSE.txt"
+    "url": "/extra-life-overlay/static/js/2.ada24666.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3073b003d4fdc6a83b86",
-    "url": "/extra-life-overlay/static/js/main.925698ac.chunk.js"
+    "revision": "ef41f4c29dd368de6ac1",
+    "url": "/extra-life-overlay/static/js/main.7a8d3f48.chunk.js"
   },
   {
     "revision": "3eef7bb627de52e73596",
