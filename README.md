@@ -4,10 +4,10 @@ A simple and lightweight stream overlay alternative for Extra Life campaigns.
 
 ## Features
 
-* A small Extra Life logo that can be oriented on the left or right of the screen.
-* An animated progress bar that shows the amount raised in dollars.
-* Progress bar orientation changes based on the logo orientation.
-* A visual design inspired by the Extra Life website visual design.
+- A small Extra Life logo that can be oriented on the left or right of the screen.
+- An animated progress bar that shows the amount raised in dollars.
+- Progress bar orientation changes based on the logo orientation.
+- A visual design inspired by the Extra Life website visual design.
 
 ![Extra Life Overlay](/doc/extra-life-overlay.png)
 
@@ -21,7 +21,7 @@ You will need to get your participant ID in order to use this overlay. To get yo
 
 1. Go to your Extra Life page.
 2. Note the URL, you should see something like `https://www.extra-life.org/index.cfm?fuseaction=donordrive.participant&participantID=123456`
-3. Take the number to the right of the `participantID=`, this number is your participant ID. In the example, this is `123456`.
+3. Take the number to the right of the `participantID=`, this number is your participant ID. In the example this is `123456`.
 
 ### General instructions
 
@@ -40,6 +40,20 @@ https://weegeekps.github.io/extra-life-overlay?participant=<participant_id>&orie
 ```
 
 If you do this after loading the Browser Source the first time, you may need to clear the cache for the Browser Source or restart your client.
+
+#### Using for your Team instead of a single Participant
+
+In order to display the team donations instead of participant donations, you can replace `participant` with `team` and use your team ID as the value. To get your team ID follow these instructions. Note these are largely identical to the participant instructions, but use `team` in the extra-life-overlay url instead of `participant`.
+
+1. Go to your Extra Life team page.
+2. Note the URL, you should see something like `https://www.extra-life.org/index.cfm?fuseaction=donorDrive.team&teamID=12345`
+3. Take the number to the right of `teamId=`, this number is your team ID. In the example this is `12345`.
+
+Then add a Browser Source to your scene with the following URL and replacing `<team_id>` with your team ID:
+
+```
+https://weegeekps.github.io/extra-life-overlay?team=<team_id>
+```
 
 ### Using with OBS Studio
 

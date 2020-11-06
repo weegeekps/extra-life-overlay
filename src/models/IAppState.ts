@@ -1,4 +1,5 @@
 import { IParticipant, ParticipantId } from "./IParticipant";
+import { ITeam, TeamId } from "./ITeam";
 
 export interface IParticipantState {
   isFetchingParticipant: boolean;
@@ -6,6 +7,13 @@ export interface IParticipantState {
   value?: IParticipant;
 }
 
+export interface ITeamState {
+  isFetchingTeam: boolean;
+  id?: TeamId;
+  value?: ITeam;
+}
+
 export interface IAppState {
   participant: IParticipantState;
+  team: ITeamState;
 }

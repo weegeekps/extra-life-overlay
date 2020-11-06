@@ -4,7 +4,7 @@ import { fetchParticipantById } from "../../services/ExtraLife";
 import { IParticipant } from "../../models/IParticipant";
 import { IRequestParticipantFetchAction } from "./Interfaces";
 import { ParticipantActionTypes } from "./Types";
-import { getParticipantId, isRequestInFlight } from "./Selectors";
+import { getParticipantId, isParticipantRequestInFlight } from "./Selectors";
 
 const DELAY_IN_SECONDS = 60;
 
@@ -24,7 +24,7 @@ export function* tickUpdateParticipantTimer() {
   while (true) {
     const id = yield select(getParticipantId);
 
-    const lastRequestStillInFlight = yield select(isRequestInFlight);
+    const lastRequestStillInFlight = yield select(isParticipantRequestInFlight);
 
     if (!lastRequestStillInFlight && id) {
       yield put(actions.requestParticipantFetch(id));
