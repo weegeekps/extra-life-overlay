@@ -5,6 +5,7 @@ import { fetchTeamById } from "../../services/ExtraLife";
 import { IRequestTeamFetchAction } from "./Interfaces";
 import { getTeamId, isTeamRequestInFlight } from "./Selectors";
 import { TeamActionTypes } from "./Types";
+import { ParticipantId } from "../../models/IParticipant";
 
 // TODO: This and store/participant/Sagas.ts has a lot of repeat code that should be refactored.
 
@@ -15,15 +16,17 @@ export function* retrieveTeam(action: IRequestTeamFetchAction) {
     const team: ITeam = yield call(fetchTeamById, action.id);
     yield put(actions.successfulTeamFetch(team));
   } catch (err) {
-    yield put(actions.failedTeamFetch(err));
+    yield put(actions.failedTeamFetch(err as Error));
   }
 }
 
 export function* tickUpdateTeamTimer() {
   while (true) {
-    const id = yield select(getTeamId);
+    const id: ParticipantId = yield select(getTeamId);
 
-    const lastRequestStillInFlight = yield select(isTeamRequestInFlight);
+    const lastRequestStillInFlight: boolean = yield select(
+      isTeamRequestInFlight
+    );
 
     if (!lastRequestStillInFlight && id) {
       yield put(actions.requestTeamFetch(id));
