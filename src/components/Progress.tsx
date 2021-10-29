@@ -2,8 +2,6 @@ import { connect } from "react-redux";
 import { useSpring, animated } from "react-spring";
 import "./Progress.css";
 import { IAppState } from "../models/IAppState";
-import { IParticipant } from "../models/IParticipant";
-import { ITeam } from "../models/ITeam";
 
 export interface IProgressOptions {
   showTeamName: boolean;
