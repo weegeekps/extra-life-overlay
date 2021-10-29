@@ -1,8 +1,18 @@
+.progress-region {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 120px;
+}
+
 .progress-container {
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
+  place-self: center;
+  grid-column: 1;
+  grid-row: 2/3;
 }
 
 .progress-container.right {
@@ -62,6 +72,38 @@
 }
 
 .progress-text.right {
+  direction: rtl;
+}
+
+.progress-team-name {
+  color: white;
+  font-size: 1.5rem;
+  align-self: end;
+  grid-column: 1;
+  grid-row: 1/2;
+}
+
+.progress-team-name p {
+  margin: 0;
+}
+
+.progress-team-name.right {
+  direction: rtl;
+}
+
+.progress-goal {
+  color: white;
+  font-size: 1.25rem;
+  align-self: start;
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.progress-goal p {
+  margin: 0;
+}
+
+.progress-goal.right {
   direction: rtl;
 }
 
