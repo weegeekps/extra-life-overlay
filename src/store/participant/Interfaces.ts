@@ -10,11 +10,13 @@ export type ParticipantActions =
 export interface ISetParticipantIdAction {
   readonly type: ParticipantActionTypes.PARTICIPANT_ID_SET;
   readonly id: ParticipantId;
+  readonly fetchMilestones: boolean;
 }
 
 export interface IRequestParticipantFetchAction {
   readonly type: ParticipantActionTypes.PARTICIPANT_FETCH_REQUESTED;
   readonly id: ParticipantId;
+  readonly fetchMilestones: boolean;
 }
 
 export interface ISuccessfulParticipantFetchAction {
