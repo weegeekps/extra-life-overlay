@@ -2,18 +2,15 @@ import { fork, put } from "redux-saga/effects";
 import { runParticipantSagas } from "./participant/Sagas";
 import * as participantActions from "./participant/Actions";
 import * as teamActions from "./team/Actions";
-import { checkQueryStringBoolean, getQueryStringValue } from "../utils";
+import { getQueryStringValue } from "../utils";
 import { runTeamSagas } from "./team/Sagas";
 
 export function* startup() {
   const participantId = getQueryStringValue("participant");
-  const fetchMilestones = checkQueryStringBoolean("milestones");
 
   if (participantId) {
     yield fork(runParticipantSagas);
-    yield put(
-      participantActions.setParticipantId(+participantId, fetchMilestones)
-    );
+    yield put(participantActions.setParticipantId(+participantId));
   } else {
     const teamId = getQueryStringValue("team");
     if (teamId) {
