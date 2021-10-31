@@ -7,7 +7,10 @@ import { runTeamSagas } from "./team/Sagas";
 
 export function* startup() {
   const participantId = getQueryStringValue("participant");
-  const fetchMilestones = checkQueryStringBoolean("milestones");
+  const orientation = getQueryStringValue("orientation");
+  // Implementing milestones for right orientation is going to take a massive amount of work,
+  //  so if orientation is set, we just won't fetch milestones for now.
+  const fetchMilestones = !orientation && checkQueryStringBoolean("milestones");
 
   if (participantId) {
     yield fork(runParticipantSagas);

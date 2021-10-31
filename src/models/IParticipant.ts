@@ -6,6 +6,7 @@ export interface IParticipantMilestone {
   milestoneId: string;
   isActive: boolean;
   isComplete: boolean;
+  position?: number; // This is a number calculated after we fetch the milestones.
 }
 
 export interface IParticipantLinks {

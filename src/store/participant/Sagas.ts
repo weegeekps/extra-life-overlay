@@ -12,6 +12,7 @@ import {
   getParticipantId,
   isParticipantRequestInFlight,
 } from "./Selectors";
+import { clamp } from "../../utils";
 
 const DELAY_IN_SECONDS = 60;
 
@@ -26,6 +27,14 @@ export function* retrieveParticipant(action: IRequestParticipantFetchAction) {
         fetchParticipantMilestonesById,
         action.id
       );
+
+      participant.milestones.forEach((milestone) => {
+        milestone.position = clamp(
+          (milestone.fundraisingGoal / participant.fundraisingGoal) * 100,
+          0,
+          100
+        );
+      });
     } else {
       participant.milestones = [];
     }
