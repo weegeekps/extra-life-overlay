@@ -5,6 +5,7 @@ export interface IParticipantState {
   isFetchingParticipant: boolean;
   id?: ParticipantId;
   value?: IParticipant;
+  fetchMilestones: boolean;
 }
 
 export interface ITeamState {
