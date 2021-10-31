@@ -5,7 +5,6 @@ import { ParticipantActionTypes } from "./Types";
 export function participant(
   state: IParticipantState = {
     isFetchingParticipant: false,
-    fetchMilestones: false,
   },
   action: ParticipantActions
 ) {
@@ -14,7 +13,6 @@ export function participant(
       return {
         ...state,
         id: action.id,
-        fetchMilestones: action.fetchMilestones,
       };
     case ParticipantActionTypes.PARTICIPANT_FETCH_REQUESTED:
       return {
