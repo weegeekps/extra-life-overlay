@@ -14,8 +14,20 @@
   align-items: center;
 }
 
-.logo img {
+.logo-2020 img {
   width: 90%;
   height: 90%;
+  padding: 0.25rem 0.25rem 0 0;
+}
+
+.logo-wings-2021 img {
+  width: 80%;
+  height: 80%;
+  padding: 0.25rem 0.75rem 0 0;
+}
+
+.logo-dice-2021 img {
+  width: 80%;
+  height: 80%;
   padding: 0.25rem 0.25rem 0 0;
 }
