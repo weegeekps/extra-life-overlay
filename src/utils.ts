@@ -29,3 +29,9 @@ export const checkQueryStringBoolean = (queryString: string) => {
 export const prepareClassString = (...classes: string[]) => {
   return classes.reduce((acc, val) => (acc += " " + val));
 };
+
+export const clamp = (value: number, min: number, max: number) => {
+  if (value > min && value < max) return value;
+  if (value < min) return min;
+  if (value > max) return max;
+};

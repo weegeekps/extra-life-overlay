@@ -2,6 +2,8 @@ import { connect } from "react-redux";
 import { useSpring, animated } from "react-spring";
 import "./Progress.css";
 import { IAppState } from "../models/IAppState";
+import { IParticipantMilestone } from "../models/IParticipant";
+import { clamp } from "../utils";
 
 export interface IProgressOptions {
   showTeamName: boolean;
@@ -19,18 +21,13 @@ export interface IProgressProps {
   fundraisingGoal: number;
   teamName?: string;
   showGoal: boolean;
+  milestones: IParticipantMilestone[];
 }
 
 const createDefaultOptions = (): IProgressOptions => ({
   showTeamName: false,
   showGoal: false,
 });
-
-const clamp = (value: number, min: number, max: number) => {
-  if (value > min && value < max) return value;
-  if (value < min) return min;
-  if (value > max) return max;
-};
 
 const calculateCompletedWidth = (current: number, goal: number) =>
   clamp((current / goal) * 100, 0, 100);
@@ -42,6 +39,7 @@ const Progress: React.FC<IProgressProps> = (props) => {
     fundraisingGoal,
     teamName,
     showGoal,
+    milestones,
   } = props;
 
   const hasValues = fundraisingGoal !== 0 && sumDonations >= 0;
@@ -71,6 +69,15 @@ const Progress: React.FC<IProgressProps> = (props) => {
         <div className={"progress-text " + classes}>
           <p>${sumDonations.toFixed(2)}</p>
         </div>
+        {milestones.map((milestone) => (
+          <div
+            className={"progress-milestone " + classes}
+            style={{ width: milestone.position + "%" }}
+            key={milestone.milestoneId}
+          >
+            <div className="progress-milestone-indicator"></div>
+          </div>
+        ))}
       </div>
       {showGoal && (
         <div className={"progress-goal " + classes}>
@@ -101,12 +108,15 @@ const mapStateToProps = (state: IAppState, ownProps: IProgressOwnProps) => {
 
   const safeOptions = options || createDefaultOptions();
 
+  const milestones = participant ? participant.milestones : [];
+
   return {
     className,
     sumDonations,
     fundraisingGoal,
     teamName: safeOptions.showTeamName ? team?.name : undefined,
     showGoal: safeOptions.showGoal,
+    milestones,
   };
 };
 

@@ -7,19 +7,25 @@ import {
 import { ParticipantActionTypes } from "./Types";
 import { ParticipantId, IParticipant } from "../../models/IParticipant";
 
-export function setParticipantId(id: ParticipantId): ISetParticipantIdAction {
+export function setParticipantId(
+  id: ParticipantId,
+  fetchMilestones: boolean
+): ISetParticipantIdAction {
   return {
     type: ParticipantActionTypes.PARTICIPANT_ID_SET,
     id,
+    fetchMilestones,
   };
 }
 
 export function requestParticipantFetch(
-  id: ParticipantId
+  id: ParticipantId,
+  fetchMilestones: boolean
 ): IRequestParticipantFetchAction {
   return {
     type: ParticipantActionTypes.PARTICIPANT_FETCH_REQUESTED,
     id,
+    fetchMilestones,
   };
 }
 
