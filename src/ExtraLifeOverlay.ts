@@ -14,8 +14,8 @@ export class ExtraLifeOverlay extends LitElement {
 
   render() {
     return html`
-      <div>
-        <p>Hello world!</p>
+      <div data-testid="root-element">
+        <p>Hello, world!</p>
       </div>
     `;
   }

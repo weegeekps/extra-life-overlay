@@ -7,17 +7,24 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:browser": "vitest --workspace=vitest.workspace.ts"
   },
   "dependencies": {
     "lit": "^3.1.4",
     "xstate": "^5.14.0"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.3.1",
+    "@vitest/browser": "^2.0.2",
     "eslint": "^9.7.0",
     "prettier": "^3.3.2",
+    "shadow-dom-testing-library": "^1.11.2",
     "typescript": "^5.2.2",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "vitest": "^2.0.2",
+    "webdriverio": "^8.39.1"
   },
   "packageManager": "yarn@4.3.1"
 }
