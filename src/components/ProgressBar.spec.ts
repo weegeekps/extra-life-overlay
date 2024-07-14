@@ -1,7 +1,7 @@
 import { describe, beforeEach, it, afterEach, expect } from "vitest";
 import { waitFor } from "@testing-library/dom";
 import { screen } from "shadow-dom-testing-library";
-import "./Progress";
+import "./ProgressBar";
 
 describe("Main Component Tests", () => {
   let el: HTMLElement;

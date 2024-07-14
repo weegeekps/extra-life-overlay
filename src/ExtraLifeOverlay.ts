@@ -1,5 +1,6 @@
 import { LitElement, css, html } from "lit";
 import { customElement } from "lit/decorators.js";
+import { ifDefined } from "lit/directives/if-defined.js";
 import {
   checkQueryStringBoolean,
   getQueryStringEnumValue,
@@ -8,6 +9,8 @@ import {
 } from "./utils";
 import { ILogoChoice } from "./models/ILogoChoice";
 import { Orientation } from "./models/Orientation";
+import "./components/ExtraLifeLogo";
+import "./components/ProgressBar";
 
 @customElement("extra-life-overlay")
 export class ExtraLifeOverlay extends LitElement {
@@ -59,7 +62,15 @@ export class ExtraLifeOverlay extends LitElement {
       debuggingMode ? "debugging" : "",
     );
 
-    return html` <div data-testid="root-element"></div> `;
+    return html`
+      <div class="${topLevelClasses}" data-testid="root-element">
+        <extra-life-logo choice="${ifDefined(logoChoice)}"></extra-life-logo>
+        <progress-bar
+          class="${orientation || Orientation.Left}"
+          .options="${{ showTeamName, showGoal }}"
+        ></progress-bar>
+      </div>
+    `;
   }
 }
 
