@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "lit": "^3.1.4",
+    "xss": "^1.0.15",
     "xstate": "^5.14.0"
   },
   "devDependencies": {

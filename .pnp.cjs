@@ -37,6 +37,7 @@ const RAW_RUNTIME_STATE =
           ["vite", "virtual:735249b21669d2d5f4743267b6dcef1f437f0aac8a0b2eb27cbc903434caf0d370f38d0ccf3a8a143e9eaecd36e36831cec9eb367962f595c0e0ae15259cedf2#npm:5.3.3"],\
           ["vitest", "virtual:735249b21669d2d5f4743267b6dcef1f437f0aac8a0b2eb27cbc903434caf0d370f38d0ccf3a8a143e9eaecd36e36831cec9eb367962f595c0e0ae15259cedf2#npm:2.0.2"],\
           ["webdriverio", "virtual:735249b21669d2d5f4743267b6dcef1f437f0aac8a0b2eb27cbc903434caf0d370f38d0ccf3a8a143e9eaecd36e36831cec9eb367962f595c0e0ae15259cedf2#npm:8.39.1"],\
+          ["xss", "npm:1.0.15"],\
           ["xstate", "npm:5.14.0"]\
         ],\
         "linkType": "SOFT"\
@@ -1850,6 +1851,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["commander", [\
+      ["npm:2.20.3", {\
+        "packageLocation": "../../.yarn/berry/cache/commander-npm-2.20.3-d8dcbaa39b-10c0.zip/node_modules/commander/",\
+        "packageDependencies": [\
+          ["commander", "npm:2.20.3"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:9.5.0", {\
         "packageLocation": "../../.yarn/berry/cache/commander-npm-9.5.0-993b3f2434-10c0.zip/node_modules/commander/",\
         "packageDependencies": [\
@@ -1955,6 +1963,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/css-value-npm-0.0.1-e6e2039cae-10c0.zip/node_modules/css-value/",\
         "packageDependencies": [\
           ["css-value", "npm:0.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["cssfilter", [\
+      ["npm:0.0.10", {\
+        "packageLocation": "../../.yarn/berry/cache/cssfilter-npm-0.0.10-28e06ce546-10c0.zip/node_modules/cssfilter/",\
+        "packageDependencies": [\
+          ["cssfilter", "npm:0.0.10"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2478,6 +2495,7 @@ const RAW_RUNTIME_STATE =
           ["vite", "virtual:735249b21669d2d5f4743267b6dcef1f437f0aac8a0b2eb27cbc903434caf0d370f38d0ccf3a8a143e9eaecd36e36831cec9eb367962f595c0e0ae15259cedf2#npm:5.3.3"],\
           ["vitest", "virtual:735249b21669d2d5f4743267b6dcef1f437f0aac8a0b2eb27cbc903434caf0d370f38d0ccf3a8a143e9eaecd36e36831cec9eb367962f595c0e0ae15259cedf2#npm:2.0.2"],\
           ["webdriverio", "virtual:735249b21669d2d5f4743267b6dcef1f437f0aac8a0b2eb27cbc903434caf0d370f38d0ccf3a8a143e9eaecd36e36831cec9eb367962f595c0e0ae15259cedf2#npm:8.39.1"],\
+          ["xss", "npm:1.0.15"],\
           ["xstate", "npm:5.14.0"]\
         ],\
         "linkType": "SOFT"\
@@ -5405,6 +5423,17 @@ const RAW_RUNTIME_STATE =
           "@types/utf-8-validate",\
           "bufferutil",\
           "utf-8-validate"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["xss", [\
+      ["npm:1.0.15", {\
+        "packageLocation": "../../.yarn/berry/cache/xss-npm-1.0.15-a70a62f810-10c0.zip/node_modules/xss/",\
+        "packageDependencies": [\
+          ["xss", "npm:1.0.15"],\
+          ["commander", "npm:2.20.3"],\
+          ["cssfilter", "npm:0.0.10"]\
         ],\
         "linkType": "HARD"\
       }]\
