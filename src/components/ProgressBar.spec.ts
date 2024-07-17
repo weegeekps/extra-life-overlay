@@ -12,7 +12,7 @@ describe("Main Component Tests", () => {
 
   it("should render component", async () => {
     document.body.appendChild(el);
-    await waitFor(() => expect(screen.findByShadowTestId("progress-element")).toBeDefined());
+    await waitFor(() => expect(screen.findByShadowTestId("progress")).toBeDefined());
   });
 
   afterEach(() => {

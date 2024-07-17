@@ -1,4 +1,4 @@
-import { html, LitElement } from "lit";
+import { css, html, LitElement, nothing } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { IParticipantMilestone } from "../models/IParticipant";
 
@@ -28,8 +28,181 @@ export class ProgressBar extends LitElement {
   options?: IProgressBarOptions = undefined;
 
   render() {
-    return html`<div data-testid="progress-element">Progress Bar goes here.</div>`;
+    return html`<div class="progress-region">
+      ${this.options?.showTeamName
+        ? html`<div class="progress-team-name ${this.classes}">
+            <p>${this.teamName}</p>
+          </div>`
+        : nothing}
+      <div class="progress-container" data-testid="progress">
+        <div class="progress-bar ${this.classes}">
+          <div class="completed"></div>
+        </div>
+        <div class="progress-text ${this.classes}">
+          <p>${this.sumDonations.toFixed(2)}</p>
+        </div>
+        ${this.milestones.map(
+          (milestone) =>
+            html`<div class="progress-milestone ${this.classes}">
+              <!-- TODO: Implement milestone positioning -->
+              <div class="progress-milestone-indicator"></div>
+            </div>`,
+        )}
+      </div>
+      ${this.options?.showGoal
+        ? html`<div class="progress-goal ${this.classes}">
+            <p>${this.fundraisingGoal.toFixed(2)}</p>
+          </div>`
+        : nothing}
+    </div>`;
   }
+
+  static styles = css`
+    .progress-region {
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: 1fr 1fr 1fr;
+      height: 120px;
+    }
+
+    .progress-container {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      place-self: center;
+      grid-column: 1;
+      grid-row: 2/3;
+    }
+
+    .progress-container.right {
+      direction: rtl;
+    }
+
+    .progress-bar {
+      position: relative;
+      background: #1a4c6d;
+      overflow: hidden;
+      height: 40px;
+      border-radius: 300px;
+      border: solid 4px white;
+      width: 500px;
+    }
+
+    .progress-bar.right {
+      direction: rtl;
+    }
+
+    .progress-bar .completed {
+      background: #26c2eb;
+      height: 100%;
+      text-align: right;
+    }
+
+    .progress-bar .completed {
+      background-image: linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0.17) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.17) 50%,
+        rgba(255, 255, 255, 0.17) 75%,
+        transparent 75%
+      );
+      background-size: 20px 20px;
+      overflow: hidden;
+      animation: progress-animation 1s ease-in-out;
+    }
+
+    .progress-text {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      text-align: left;
+      color: white;
+      font-size: 2.3rem;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .progress-text p {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .progress-text.right {
+      direction: rtl;
+    }
+
+    .progress-milestone {
+      position: absolute;
+      z-index: 1;
+      display: flex;
+      justify-content: flex-end;
+      height: 100%;
+    }
+
+    .progress-milestone.left {
+      margin-left: -3rem;
+    }
+
+    .progress-milestone-indicator {
+      width: 3px;
+      height: 40px;
+      background-color: #c73047;
+      border-bottom: solid 4px white;
+      border-top: solid 4px white;
+    }
+
+    .progress-team-name {
+      color: white;
+      font-size: 1.5rem;
+      align-self: end;
+      grid-column: 1;
+      grid-row: 1/2;
+    }
+
+    .progress-team-name p {
+      margin: 0;
+    }
+
+    .progress-team-name.right {
+      direction: rtl;
+    }
+
+    .progress-goal {
+      color: white;
+      font-size: 1.25rem;
+      align-self: start;
+      grid-column: 1;
+      grid-row: 3;
+    }
+
+    .progress-goal p {
+      margin: 0;
+    }
+
+    .progress-goal.right {
+      direction: rtl;
+    }
+
+    .progress-bar.left {
+      margin-left: -3rem;
+      z-index: 1;
+    }
+
+    .progress-bar.right {
+      margin-right: -3rem;
+      z-index: 1;
+    }
+
+    @keyframes progress-animation {
+      0% {
+        width: 0;
+      }
+    }
+  `;
 }
 
 declare global {

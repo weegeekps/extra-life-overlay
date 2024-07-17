@@ -30,16 +30,18 @@ export class ExtraLifeOverlay extends LitElement {
       <div class="${topLevelClasses}" data-testid="root-element">
         <extra-life-logo choice="${ifDefined(logoChoice)}"></extra-life-logo>
         <progress-bar
-          class="${orientation || Orientation.Left}"
+          classes="${orientation || Orientation.Left}"
           .options="${{ showTeamName, showGoal }}"
         ></progress-bar>
       </div>
     `;
   }
 
+  // TODO: @imports don't work, but for some reason the font I get from
+  // Google fonts is not Cantarell if I include it in the template. I've
+  // got an @import in the index.css file but that will prevent this from
+  // having the correct font if embedded elsewhere. Needs to be fixed.
   static styles = css`
-    @import url("https://fonts.googleapis.com/css2?family=Cantarell:wght@700&display=swap");
-
     .app {
       display: flex;
       align-items: center;
@@ -58,18 +60,8 @@ export class ExtraLifeOverlay extends LitElement {
       background-color: black;
     }
 
-    .app .logo {
+    extra-life-logo {
       z-index: 2;
-    }
-
-    .app .progress-bar.left {
-      margin-left: -3rem;
-      z-index: 1;
-    }
-
-    .app .progress-bar.right {
-      margin-right: -3rem;
-      z-index: 1;
     }
   `;
 }
