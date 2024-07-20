@@ -1,6 +1,10 @@
-import { css, html, LitElement, nothing } from "lit";
+import { css, html, LitElement, nothing, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import { animate, spring } from "motion";
 import { IParticipantMilestone } from "../models/IParticipant";
+import { clamp } from "../utils";
+
+const calculateCompletedWidth = (current: number, goal: number) => clamp((current / goal) * 100, 0, 100);
 
 export interface IProgressBarOptions {
   showTeamName: boolean;
@@ -27,6 +31,37 @@ export class ProgressBar extends LitElement {
   @property({ type: Object })
   options?: IProgressBarOptions = undefined;
 
+  protected firstUpdated(_changedProperties: PropertyValues): void {
+    super.firstUpdated(_changedProperties);
+
+    this.updateProgressBar();
+  }
+
+  protected updated(_changedProperties: PropertyValues): void {
+    super.updated(_changedProperties);
+
+    if (_changedProperties.has("sumDonations") || _changedProperties.has("fundraisingGoal")) {
+      this.updateProgressBar();
+    }
+  }
+
+  updateProgressBar() {
+    const hasValues = this.fundraisingGoal !== 0 && this.sumDonations >= 0;
+    const completedEl = this.renderRoot?.querySelector(".completed");
+
+    if (completedEl) {
+      const completedWidth =
+        (hasValues ? calculateCompletedWidth(this.sumDonations, this.fundraisingGoal) : 0) + "%";
+      animate(
+        completedEl,
+        {
+          width: completedWidth,
+        },
+        { easing: spring() },
+      );
+    }
+  }
+
   render() {
     return html`<div class="progress-region">
       ${this.options?.showTeamName
@@ -36,7 +71,7 @@ export class ProgressBar extends LitElement {
         : nothing}
       <div class="progress-container" data-testid="progress">
         <div class="progress-bar ${this.classes}">
-          <div class="completed"></div>
+          <div data-testid="progress-completed" class="completed"></div>
         </div>
         <div class="progress-text ${this.classes}">
           <p>${this.sumDonations.toFixed(2)}</p>
@@ -96,6 +131,7 @@ export class ProgressBar extends LitElement {
     .progress-bar .completed {
       background: #26c2eb;
       height: 100%;
+      width: 0%;
       text-align: right;
     }
 

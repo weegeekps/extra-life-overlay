@@ -32,6 +32,6 @@ export const prepareClassString = (...classes: string[]) => {
 
 export const clamp = (value: number, min: number, max: number) => {
   if (value > min && value < max) return value;
-  if (value < min) return min;
+  if (value <= min) return min;
   if (value > max) return max;
 };

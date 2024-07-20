@@ -31,6 +31,7 @@ const RAW_RUNTIME_STATE =
           ["@vitest/browser", "virtual:735249b21669d2d5f4743267b6dcef1f437f0aac8a0b2eb27cbc903434caf0d370f38d0ccf3a8a143e9eaecd36e36831cec9eb367962f595c0e0ae15259cedf2#npm:2.0.2"],\
           ["eslint", "npm:9.7.0"],\
           ["lit", "npm:3.1.4"],\
+          ["motion", "npm:10.18.0"],\
           ["prettier", "npm:3.3.2"],\
           ["shadow-dom-testing-library", "virtual:735249b21669d2d5f4743267b6dcef1f437f0aac8a0b2eb27cbc903434caf0d370f38d0ccf3a8a143e9eaecd36e36831cec9eb367962f595c0e0ae15259cedf2#npm:1.11.2"],\
           ["typescript", "patch:typescript@npm%3A5.5.3#optional!builtin<compat/typescript>::version=5.5.3&hash=379a07"],\
@@ -563,6 +564,78 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@lit/reactive-element", "npm:2.0.4"],\
           ["@lit-labs/ssr-dom-shim", "npm:1.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@motionone/animation", [\
+      ["npm:10.18.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@motionone-animation-npm-10.18.0-2180f85661-10c0.zip/node_modules/@motionone/animation/",\
+        "packageDependencies": [\
+          ["@motionone/animation", "npm:10.18.0"],\
+          ["@motionone/easing", "npm:10.18.0"],\
+          ["@motionone/types", "npm:10.17.1"],\
+          ["@motionone/utils", "npm:10.18.0"],\
+          ["tslib", "npm:2.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@motionone/dom", [\
+      ["npm:10.18.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@motionone-dom-npm-10.18.0-345f8428a0-10c0.zip/node_modules/@motionone/dom/",\
+        "packageDependencies": [\
+          ["@motionone/dom", "npm:10.18.0"],\
+          ["@motionone/animation", "npm:10.18.0"],\
+          ["@motionone/generators", "npm:10.18.0"],\
+          ["@motionone/types", "npm:10.17.1"],\
+          ["@motionone/utils", "npm:10.18.0"],\
+          ["hey-listen", "npm:1.0.8"],\
+          ["tslib", "npm:2.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@motionone/easing", [\
+      ["npm:10.18.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@motionone-easing-npm-10.18.0-95adbdf9b8-10c0.zip/node_modules/@motionone/easing/",\
+        "packageDependencies": [\
+          ["@motionone/easing", "npm:10.18.0"],\
+          ["@motionone/utils", "npm:10.18.0"],\
+          ["tslib", "npm:2.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@motionone/generators", [\
+      ["npm:10.18.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@motionone-generators-npm-10.18.0-d07445b229-10c0.zip/node_modules/@motionone/generators/",\
+        "packageDependencies": [\
+          ["@motionone/generators", "npm:10.18.0"],\
+          ["@motionone/types", "npm:10.17.1"],\
+          ["@motionone/utils", "npm:10.18.0"],\
+          ["tslib", "npm:2.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@motionone/types", [\
+      ["npm:10.17.1", {\
+        "packageLocation": "../../.yarn/berry/cache/@motionone-types-npm-10.17.1-47076caef0-10c0.zip/node_modules/@motionone/types/",\
+        "packageDependencies": [\
+          ["@motionone/types", "npm:10.17.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@motionone/utils", [\
+      ["npm:10.18.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@motionone-utils-npm-10.18.0-40cdd5a767-10c0.zip/node_modules/@motionone/utils/",\
+        "packageDependencies": [\
+          ["@motionone/utils", "npm:10.18.0"],\
+          ["@motionone/types", "npm:10.17.1"],\
+          ["hey-listen", "npm:1.0.8"],\
+          ["tslib", "npm:2.6.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2489,6 +2562,7 @@ const RAW_RUNTIME_STATE =
           ["@vitest/browser", "virtual:735249b21669d2d5f4743267b6dcef1f437f0aac8a0b2eb27cbc903434caf0d370f38d0ccf3a8a143e9eaecd36e36831cec9eb367962f595c0e0ae15259cedf2#npm:2.0.2"],\
           ["eslint", "npm:9.7.0"],\
           ["lit", "npm:3.1.4"],\
+          ["motion", "npm:10.18.0"],\
           ["prettier", "npm:3.3.2"],\
           ["shadow-dom-testing-library", "virtual:735249b21669d2d5f4743267b6dcef1f437f0aac8a0b2eb27cbc903434caf0d370f38d0ccf3a8a143e9eaecd36e36831cec9eb367962f595c0e0ae15259cedf2#npm:1.11.2"],\
           ["typescript", "patch:typescript@npm%3A5.5.3#optional!builtin<compat/typescript>::version=5.5.3&hash=379a07"],\
@@ -2882,6 +2956,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/headers-polyfill-npm-4.0.3-65ca63b329-10c0.zip/node_modules/headers-polyfill/",\
         "packageDependencies": [\
           ["headers-polyfill", "npm:4.0.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["hey-listen", [\
+      ["npm:1.0.8", {\
+        "packageLocation": "../../.yarn/berry/cache/hey-listen-npm-1.0.8-adb7dae9da-10c0.zip/node_modules/hey-listen/",\
+        "packageDependencies": [\
+          ["hey-listen", "npm:1.0.8"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3633,6 +3716,19 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/mkdirp-classic-npm-0.5.3-3b5c991910-10c0.zip/node_modules/mkdirp-classic/",\
         "packageDependencies": [\
           ["mkdirp-classic", "npm:0.5.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["motion", [\
+      ["npm:10.18.0", {\
+        "packageLocation": "../../.yarn/berry/cache/motion-npm-10.18.0-5b3bb74aa9-10c0.zip/node_modules/motion/",\
+        "packageDependencies": [\
+          ["motion", "npm:10.18.0"],\
+          ["@motionone/animation", "npm:10.18.0"],\
+          ["@motionone/dom", "npm:10.18.0"],\
+          ["@motionone/types", "npm:10.17.1"],\
+          ["@motionone/utils", "npm:10.18.0"]\
         ],\
         "linkType": "HARD"\
       }]\
